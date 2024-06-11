@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config('Paylocity Accounting', '📄')
+
 st.caption('VACAYZEN')
 st.title('Paylocity Accounting')
 st.info('Remove unnecessary data from a paylocity export.')
@@ -16,7 +18,7 @@ if file is not None:
         'Process',
         'Check Date',
         'Net',
-        
+
         'E-REGHours',
         'E-REGAmount',
         'E-OTHours',

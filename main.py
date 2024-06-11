@@ -18,7 +18,6 @@ if file is not None:
         'Process',
         'Check Date',
         'Net',
-
         'E-REGHours',
         'E-REGAmount',
         'E-OTHours',
@@ -41,6 +40,13 @@ if file is not None:
     ]
 
     df = pd.read_csv(file, index_col=False)
-    df = df[columns]
+
+    contained_columns = []
+
+    for column in columns:
+        if column in df.columns:
+            contained_columns.append(column)
+
+    df = df[contained_columns]
 
     st.download_button('DOWNLOAD', df.to_csv(index=False), 'Paylocity_Export.csv', 'CSV', use_container_width=True, type='primary')
